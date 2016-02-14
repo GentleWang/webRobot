@@ -1,3 +1,4 @@
+package com.personal.webRobot;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -29,18 +30,12 @@ public class URLDigger {
     }
     public Set<String> getImgURL(String url){
         Set<String> imgURLSet = new HashSet<String>();
-        Pattern p = Pattern.compile("<img[^<]+src=\"([^\"]+)\"[^>]+>");
+        Pattern p = Pattern.compile("<img[^<]+src=\"([^\"]+)\"[^>]*>");
         Matcher matcher = p.matcher(url);
-//        Pattern p1 = Pattern.compile("http[s*]:\\\"?(.*?)(\\\"|>|\\\\s+)");
         while (matcher.find()) {
             String imgUrl = matcher.group(1);
             System.out.println(imgUrl);
-//            Matcher matcher1 = p1.matcher(imgUrl);
-//            while(matcher1.find()){
-//                String imgSrcUrl = matcher1.group();
-//                System.out.println(imgSrcUrl);
-//                imgURLSet.add(imgSrcUrl);
-//            }
+                imgURLSet.add("http://www.cebbank.com"+imgUrl);
         }
         System.out.println(imgURLSet.size());
         return imgURLSet;
