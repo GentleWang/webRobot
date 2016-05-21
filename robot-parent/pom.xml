@@ -8,5 +8,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>webRobot</module>
+    <module>chineseAnalysis</module>
   </modules>
 </project>
